@@ -45,24 +45,16 @@ async function main() {
       // const formatted = json.choices[0].text.match(/.{1,160}(\s|$)/g);
       const formatted = json.choices[0].text.split(" ");
 
-      // loop over the text and print it out in the same line until that line reaches over 160 characters
-      console.log(Array.from("=".repeat(160)).join(""));
+      // loop over the text and print it out in the same line until that
 
-      console.log("\n\n");
-
-      let line = "";
-      for (let i = 0; i < formatted.length; i++) {
-        if (line.length + formatted[i].length > 80) {
-          console.log(line);
-          line = "";
-        }
-        line += formatted[i] + " ";
-      }
-      console.log(line);
-      console.log("\n\n");
-      console.log(Array.from("=".repeat(80)).join(""));
-
-      process.exit();
+      console.log(
+        Array.from("=".repeat(80)).join("") +
+          "\n\n" +
+          // json.choices[0].text +
+          formatted +
+          "\n\n" +
+          Array.from("=".repeat(80)).join("")
+      );
 
       // console.log(json.choices[0].text);
     });
